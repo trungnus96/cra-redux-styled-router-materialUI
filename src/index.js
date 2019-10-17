@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
+import withErrorBoundary from "./HOCs/withErrorBoundary";
 import withMaterialUI from "./HOCs/withMaterialUI";
 import withStyledComponents from "./HOCs/withStyledComponents";
 import withRedux from "./HOCs/withRedux";
 
 import routes from "./routes";
 
+// withErrorBoundary
+const Root_withErrorBoundary = withErrorBoundary(routes);
+
 // withMaterialUI
-const Root_withMaterialUI = withMaterialUI(routes);
+const Root_withMaterialUI = withMaterialUI(Root_withErrorBoundary);
 
 // withStyledComponents
 const Root_withStyledComponents = withStyledComponents(Root_withMaterialUI);
