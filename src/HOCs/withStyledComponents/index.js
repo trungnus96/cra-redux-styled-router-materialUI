@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, memo } from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./GlobalStyle";
 import theme from "./theme";
 
 function withMaterialUI(Component) {
-  return (props) => {
+  return memo(props => {
     // MuiThemeProvider makes the theme available down the React tree
     // thanks to React context.
     return (
@@ -15,7 +15,7 @@ function withMaterialUI(Component) {
         </Fragment>
       </ThemeProvider>
     );
-  }
+  });
 }
 
 export default withMaterialUI;
