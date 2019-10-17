@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
 
