@@ -1,15 +1,21 @@
-import React, { Fragment } from "react";
-import App from "./App";
-import About from "./About";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import dynamicImport from "./DynamicImport";
+import React, { Fragment, memo } from "react";
+import { ConnectedRouter } from "connected-react-router";
+import { Route, Link } from "react-router-dom";
 
-const Topics = dynamicImport("./Topics");
+import { lazyLoadRoute } from "./CustomLazyLoad";
 
+// history
+import { history } from "./HOCs/withRedux/configureStore";
 
-const routes = () => {
+// pages
+// NOTE: path MUST be relative to lazyLoadRoute file
+const App = lazyLoadRoute("./pages/App.js");
+const About = lazyLoadRoute("./pages/About.js");
+const Topics = lazyLoadRoute("./pages/Topics.js");
+
+function Routes() {
   return (
-    <Router>
+    <ConnectedRouter history={history}>
       <Fragment>
         <ul>
           <li>
@@ -29,8 +35,8 @@ const routes = () => {
         <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} />
       </Fragment>
-    </Router>
+    </ConnectedRouter>
   );
-};
+}
 
-export default routes;
+export default memo(Routes);
