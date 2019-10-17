@@ -6,7 +6,6 @@ import { SERVER_PORT_PROD } from "./config";
 const app = express();
 
 // use helmet, compress, bodyParser.json
-// set routes
 configureServer(app);
 
 app.use(express.static(path.join(__dirname, '../build'), { maxAge: 86400000 }));
