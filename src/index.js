@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
+
+// styles
+import "./styles/index.scss";
+
+// HOCs
 import withErrorBoundary from "./HOCs/withErrorBoundary";
 import withMaterialUI from "./HOCs/withMaterialUI";
 import withStyledComponents from "./HOCs/withStyledComponents";
 import withRedux from "./HOCs/withRedux";
 
+// routes
 import routes from "./routes";
 
 // withErrorBoundary
