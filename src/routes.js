@@ -1,6 +1,6 @@
-import React, { Fragment, memo } from "react";
+import React, { memo } from "react";
 import { ConnectedRouter } from "connected-react-router";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 
 import { lazyLoadRoute } from "./CustomLazyLoad";
 
@@ -16,25 +16,24 @@ const Topics = lazyLoadRoute("./pages/Topics.js");
 function Routes() {
   return (
     <ConnectedRouter history={history}>
-      <Fragment>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/topics">Topics</Link>
+        </li>
+      </ul>
 
-        <hr />
-
-        <Route exact path="/" component={App} />
+      <hr />
+      <Switch>
         <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} />
-      </Fragment>
+        <Route exact path="/" component={App} />
+      </Switch>
     </ConnectedRouter>
   );
 }
