@@ -1,11 +1,20 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from '../../reducers';
+import { createBrowserHistory } from "history";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import { routerMiddleware } from "connected-react-router";
+import createRootReducer from '../../reducers';
+
+// custom middlewares
+import customMiddlewares from "./customMiddlewares";
+
+export const history = createBrowserHistory();
 
 const initialState = {};
 
 const middleware = [
+  routerMiddleware(history),
   thunk,
+  ...customMiddlewares,
 ];
 
 // enhancers
@@ -27,7 +36,7 @@ const composedEnhancers = compose(
 // store
 const configureStore = () => {
   const store = createStore(
-    rootReducer,
+    createRootReducer(history),
     initialState,
     composedEnhancers
   )
