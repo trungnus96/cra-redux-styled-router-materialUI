@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { ConnectedRouter } from "connected-react-router";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch, Redirect } from "react-router-dom";
 
 import { lazyLoadRoute } from "./CustomLazyLoad";
 
@@ -33,6 +33,7 @@ function Routes() {
         <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} />
         <Route exact path="/" component={App} />
+        <Route render={() => <Redirect to="/" />} />
       </Switch>
     </ConnectedRouter>
   );
