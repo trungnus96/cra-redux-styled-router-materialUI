@@ -5,7 +5,7 @@ import { Route, Link, Switch, Redirect } from "react-router-dom";
 import { lazyLoadRoute } from "./CustomLazyLoad";
 
 // history
-import { history } from "./HOCs/withRedux/configureStore";
+import history from "./libs/history";
 
 // pages
 // NOTE: path MUST be relative to lazyLoadRoute file
