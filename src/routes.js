@@ -9,9 +9,9 @@ import { history } from "./HOCs/withRedux/configureStore";
 
 // pages
 // NOTE: path MUST be relative to lazyLoadRoute file
-const App = lazyLoadRoute("./pages/App.js");
-const About = lazyLoadRoute("./pages/About.js");
-const Topics = lazyLoadRoute("./pages/Topics.js");
+const App = lazyLoadRoute(() => import("./pages/App.js"));
+const About = lazyLoadRoute(() => import("./pages/About.js"));
+const Topics = lazyLoadRoute(() => import("./pages/Topics.js"));
 
 function Routes() {
   return (

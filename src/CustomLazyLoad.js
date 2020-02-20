@@ -1,16 +1,11 @@
-import React, { memo, lazy, Suspense } from 'react'
+import React, { memo, lazy, Suspense } from "react";
 
 // components
 import LoadingBar from "./components/LoadingBar";
 import ErrorBoundary from "./HOCs/withErrorBoundary/ErrorBoundary";
 
-/*
-  NOTE: path MUST be relative to this file
-*/
-
-export const lazyLoadRoute = path => props => {
-
-  const LazyComponent = lazy(() => import(`${path}`));
+export const lazyLoadRoute = lazy_load_function  => props => {
+  const LazyComponent = lazy(lazy_load_function);
 
   return (
     <Suspense fallback={<LoadingBar />}>
@@ -21,12 +16,14 @@ export const lazyLoadRoute = path => props => {
   );
 };
 
-export function lazyLoadComponent(path, is_show_loading_text = true){
-  const LazyComponent = lazy(() => import(`${path}`));
+export function lazyLoadComponent(lazy_load_function, is_show_loading_text = true) {
+  const LazyComponent = lazy(lazy_load_function);
 
-  function LazyComponentWrapper(props){
+  function LazyComponentWrapper(props) {
     return (
-      <Suspense fallback={<LoadingBar is_show_loading_text={is_show_loading_text} />}>
+      <Suspense
+        fallback={<LoadingBar is_show_loading_text={is_show_loading_text} />}
+      >
         <ErrorBoundary>
           <LazyComponent {...props} />
         </ErrorBoundary>
