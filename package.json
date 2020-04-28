@@ -11,7 +11,7 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/register": "^7.8.3",
-    "@material-ui/core": "4.9.7",
+    "@material-ui/core": "4.9.12",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "connected-react-router": "6.8.0",
@@ -21,7 +21,7 @@
     "helmet": "^3.21.3",
     "hjs": "^0.0.6",
     "morgan": "^1.9.1",
-    "node-sass": "4.13.1",
+    "node-sass": "4.14.0",
     "nprogress": "0.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -30,7 +30,7 @@
     "react-scripts": "3.4.1",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
-    "styled-components": "5.0.1"
+    "styled-components": "5.1.0"
   },
   "scripts": {
     "dev": "react-scripts start",
